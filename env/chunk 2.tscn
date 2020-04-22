@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://env/neighborhood.tres" type="TileSet" id=1]
+[ext_resource path="res://env/chunk 1.gd" type="Script" id=2]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://env/gumdrop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://env/choclate bar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://imgs/env/house-red.png" type="Texture" id=6]
+
+[node name="chunk 2" type="TileMap"]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -6160359, 536870917, 0, -6094751, 536870917, 0, -5111783, 536870917, 0, -5046175, 536870917, 0, -4063207, 536870917, 0, -3997599, 536870917, 0, -3997595, 536870919, 0, -3932049, 536870920, 0, -3014631, 536870917, 0, -2949067, 7, 0, -2949056, 536870918, 0, -2949023, 536870917, 0, -2424746, 7, 0, -1966055, 536870917, 0, -1966051, 536870919, 0, -1900480, 536870918, 0, -1900447, 536870917, 0, -1572798, 536870920, 0, -1048558, 8, 0, -917479, 536870917, 0, -851904, 536870918, 0, -851871, 536870917, 0, -524240, 536870912, 0, -524166, 536870912, 0, -327661, 536870916, 0, -327623, 536870916, 0, -327589, 536870916, 0, 196608, 2, 0, 196616, 2, 0, 196624, 2, 0, 196632, 2, 0, 196640, 2, 0, 196648, 2, 0, 196656, 2, 0, 196664, 2, 0, 196672, 536870914, 0, 196680, 536870914, 0, 196688, 536870914, 0, 196696, 536870914, 0, 196704, 536870914, 0, 196712, 536870914, 0, 196720, 536870914, 0, 196728, 536870914, 0, 1245184, 9, 0, 1245192, 9, 0, 1245200, 9, 0, 1245208, 9, 0, 1245216, 9, 0, 1245224, 9, 0, 1245232, 9, 0, 1245240, 9, 0, 1245248, 9, 0, 1245256, 9, 0, 1245264, 9, 0, 1245272, 9, 0, 1245280, 9, 0, 1245288, 9, 0, 1245296, 9, 0, 1245304, 9, 0, 1703936, 9, 0, 1703944, 9, 0, 1703952, 9, 0, 1703960, 9, 0, 1703968, 9, 0, 1703976, 9, 0, 1703984, 9, 0, 1703992, 9, 0, 1704000, 9, 0, 1704008, 9, 0, 1704016, 9, 0, 1704024, 9, 0, 1704032, 9, 0, 1704040, 9, 0, 1704048, 9, 0, 1704056, 9, 0, 2162688, 9, 0, 2162696, 9, 0, 2162704, 9, 0, 2162712, 9, 0, 2162720, 9, 0, 2162728, 9, 0, 2162736, 9, 0, 2162744, 9, 0, 2162752, 9, 0, 2162760, 9, 0, 2162768, 9, 0, 2162776, 9, 0, 2162784, 9, 0, 2162792, 9, 0, 2162800, 9, 0, 2162808, 9, 0, 2621440, 9, 0, 2621448, 9, 0, 2621456, 9, 0, 2621464, 9, 0, 2621472, 9, 0, 2621480, 9, 0, 2621488, 9, 0, 2621496, 9, 0, 2621504, 9, 0, 2621512, 9, 0, 2621520, 9, 0, 2621528, 9, 0, 2621536, 9, 0, 2621544, 9, 0, 2621552, 9, 0, 2621560, 9, 0 )
+script = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 4083.54, -1142.12 )
+scale = Vector2( 422.79, 242.86 )
+
+[node name="candy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 7024.57, -4565.03 )
+
+[node name="house-green" type="Sprite" parent="."]
+position = Vector2( 2127.28, -1833.03 )
+scale = Vector2( 4, 4 )
+z_index = -4
+texture = ExtResource( 6 )
+
+[node name="candy3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2262.1, -2247.33 )
+
+[node name="candy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1312.77, -1298 )
+
+[node name="candy5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4204.55, -3340.19 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2761.96, 51.8582 )
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

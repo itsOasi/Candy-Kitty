@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/char.tscn" type="PackedScene" id=1]
+[ext_resource path="res://imgs/doge/doge.png" type="Texture" id=2]
+
+[node name="char" instance=ExtResource( 1 )]
+spd = 15
+ap = 15
+attk_frame = 1
+jump_frame = 2
+
+[node name="tex" parent="." index="0"]
+position = Vector2( 79.2809, 0 )
+texture = ExtResource( 2 )
+
+[node name="bodycol" parent="tex" index="0"]
+position = Vector2( -96.8989, 0 )

@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://audio/theme.ogg" type="AudioStream" id=1]
+[ext_resource path="res://game.gd" type="Script" id=2]
+[ext_resource path="res://platSpawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://default_env.tres" type="Environment" id=5]
+[ext_resource path="res://env/chunk 0.tscn" type="PackedScene" id=6]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+max_spd = 30
+min_spd = 10
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 4159.17, 249.64 )
+offset = Vector2( 0, -50 )
+current = true
+zoom = Vector2( 8, 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
+
+[node name="chunk 1" parent="." instance=ExtResource( 6 )]
+
+[node name="candy3" parent="chunk 1" index="2"]
+position = Vector2( 2993.18, -460.785 )
+
+[node name="spawn" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8192, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "bgm"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+
+[editable path="chunk 1"]

@@ -1,0 +1,237 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://imgs/kitty/sheet10242201343.png" type="Texture" id=1]
+[ext_resource path="res://player/char.gd" type="Script" id=2]
+[ext_resource path="res://audio/collect.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/attack.ogg" type="AudioStream" id=4]
+[ext_resource path="res://audio/bubble.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/hit.wav" type="AudioStream" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 58.8889
+height = 98.0376
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 78.7948
+height = 3.2652
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 5.40031
+height = 26.8784
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 15.706
+height = 7.38938
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 8.34696
+
+[sub_resource type="Animation" id=6]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("tex:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("attk/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:attackOk")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("attack:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:gotHitOk")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:gotHitOk")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hit:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:hitOk")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("tex:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("attk/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="char" type="KinematicBody2D"]
+z_index = 2
+script = ExtResource( 2 )
+spd = 25
+ap = 5
+fric = 0.1
+jump_str = 150
+hitOk = true
+
+[node name="tex" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 50, -260 )
+vframes = 2
+hframes = 2
+frame = 2
+region_rect = Rect2( 0, 1100, 2400, 2500 )
+region_filter_clip = true
+
+[node name="bodycol" type="Area2D" parent="tex"]
+
+[node name="body" type="CollisionShape2D" parent="tex/bodycol"]
+position = Vector2( 17.2889, -116.834 )
+shape = SubResource( 1 )
+
+[node name="head" type="CollisionShape2D" parent="tex/bodycol"]
+position = Vector2( 13.2875, -294.476 )
+shape = SubResource( 2 )
+
+[node name="feetcol" type="CollisionShape2D" parent="."]
+position = Vector2( 13.7046, -188.793 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 3 )
+
+[node name="collect" type="Area2D" parent="."]
+scale = Vector2( 10, 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collect"]
+position = Vector2( -1.33964, -18.7938 )
+shape = SubResource( 4 )
+
+[node name="attk" type="Area2D" parent="."]
+position = Vector2( 7.05638, 496.378 )
+scale = Vector2( 10, 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attk"]
+position = Vector2( 22.3251, -67.8195 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 6 )
+anims/hit = SubResource( 7 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "sfx"
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "sfx"
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "sfx"
+
+[node name="collect2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.733
+bus = "sfx"
+[connection signal="body_entered" from="tex/bodycol" to="." method="_on_bodycol_body_entered"]
+[connection signal="area_entered" from="collect" to="." method="_on_collect_body_entered"]
+[connection signal="body_entered" from="collect" to="." method="_on_collect_body_entered"]
+[connection signal="body_entered" from="attk" to="." method="_on_attk_body_entered"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

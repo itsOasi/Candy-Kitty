@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://env/neighborhood.tres" type="TileSet" id=1]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://env/chunk 1.gd" type="Script" id=3]
+[ext_resource path="res://env/gumdrop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://env/choclate bar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://env/hard candy.tscn" type="PackedScene" id=6]
+
+[node name="chunk 1" type="TileMap"]
+position = Vector2( 5, 0 )
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -7143337, 5, 0, -7012327, 5, 0, -6094761, 5, 0, -5963751, 5, 0, -5046185, 5, 0, -4915175, 5, 0, -3997609, 5, 0, -3932135, 5, 0, -3407781, 536870919, 0, -3342235, 536870920, 0, -2949033, 5, 0, -2883559, 5, 0, -2490339, 536870919, 0, -2424793, 536870920, 0, -2097076, 7, 0, -1900457, 5, 0, -1834983, 5, 0, -1310706, 7, 0, -851881, 5, 0, -786407, 5, 0, -327599, 4, 0, -262125, 4, 0, -131031, 0, 0, 65536, 3, 0, 65544, 3, 0, 196624, 2, 0, 196626, 1, 0, 196632, 2, 0, 196640, 2, 0, 196648, 2, 0, 196688, 2, 0, 196696, 2, 0, 196704, 2, 0, 196712, 2, 0, 196720, 2, 0, 196728, 2, 0, 1245184, 9, 0, 1245192, 9, 0, 1245200, 9, 0, 1245208, 9, 0, 1245216, 9, 0, 1245224, 9, 0, 1245264, 9, 0, 1245272, 9, 0, 1245280, 9, 0, 1245288, 9, 0, 1245296, 9, 0, 1245304, 9, 0, 1703936, 9, 0, 1703944, 9, 0, 1703952, 9, 0, 1703960, 9, 0, 1703968, 9, 0, 1703976, 9, 0, 1704016, 9, 0, 1704024, 9, 0, 1704032, 9, 0, 1704040, 9, 0, 1704048, 9, 0, 1704056, 9, 0, 2162688, 9, 0, 2162696, 9, 0, 2162704, 9, 0, 2162712, 9, 0, 2162720, 9, 0, 2162728, 9, 0, 2162768, 9, 0, 2162776, 9, 0, 2162784, 9, 0, 2162792, 9, 0, 2162800, 9, 0, 2162808, 9, 0, 2621440, 9, 0, 2621448, 9, 0, 2621456, 9, 0, 2621464, 9, 0, 2621472, 9, 0, 2621480, 9, 0, 2621520, 9, 0, 2621528, 9, 0, 2621536, 9, 0, 2621544, 9, 0, 2621552, 9, 0, 2621560, 9, 0 )
+script = ExtResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 4112.85, -925.452 )
+scale = Vector2( 434.57, 211.62 )
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7706.1, -238.224 )
+
+[node name="candy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1753.47, -606.354 )
+
+[node name="candy2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3981.13, -3594.25 )
+
+[node name="candy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3910.41, -1172.11 )
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

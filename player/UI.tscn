@@ -1,0 +1,459 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://player/UI.gd" type="Script" id=1]
+[ext_resource path="res://imgs/ui/Artboard.png" type="Texture" id=2]
+[ext_resource path="res://imgs/ui/Triangle.png" type="Texture" id=3]
+[ext_resource path="res://env/theme/nani.theme" type="Theme" id=4]
+[ext_resource path="res://audio/hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/bubble.wav" type="AudioStream" id=6]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 734.573 ]
+}
+
+[node name="main menu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="screen right" type="Control" parent="main menu"]
+anchor_left = 0.716
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.184021
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start" type="Button" parent="main menu/screen right"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -257.272
+margin_top = -30.0955
+margin_right = -41.2721
+margin_bottom = 34.9045
+text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="Button" parent="main menu/screen right"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = 63.0595
+margin_right = -39.0
+margin_bottom = 128.06
+text = "settings"
+
+[node name="web" type="Button" parent="main menu/screen right"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = 160.759
+margin_right = -39.0
+margin_bottom = 225.759
+text = "about"
+
+[node name="screen left" type="Control" parent="main menu"]
+anchor_right = 0.716
+anchor_bottom = 1.0
+margin_right = -0.184021
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charRight" type="Button" parent="main menu/screen left"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = 65.4713
+margin_right = -75.0
+margin_bottom = 126.471
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charLeft" type="Button" parent="main menu/screen left"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 74.9784
+margin_top = 69.4713
+margin_right = 147.978
+margin_bottom = 130.471
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charName" type="Label" parent="main menu/screen left"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -128.622
+margin_right = 20.0
+margin_bottom = -81.6222
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stats" type="Control" parent="main menu"]
+anchor_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dist" type="Label" parent="main menu/stats"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -501.301
+margin_top = 4.80848
+margin_right = -310.301
+margin_bottom = 85.8085
+text = "DIST"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snakes" type="Label" parent="main menu/stats"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -331.699
+margin_top = 2.15846
+margin_right = -140.699
+margin_bottom = 83.1585
+text = "SNAKES"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="candy" type="Label" parent="main menu/stats"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -355.137
+margin_top = 4.80848
+margin_right = -164.137
+margin_bottom = 85.8085
+text = "CANDY"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time" type="Label" parent="main menu/stats"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.301
+margin_top = 2.65002
+margin_right = 10.6992
+margin_bottom = 83.65
+text = "TIME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="debug" type="Label" parent="main menu/stats"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -95.5
+margin_top = 517.907
+margin_right = 95.5
+margin_bottom = 598.907
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="game ui" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stats" type="Control" parent="game ui"]
+anchor_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dist" type="Label" parent="game ui/stats"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 35.8997
+margin_top = 1.73225
+margin_right = 226.9
+margin_bottom = 82.7322
+text = "dist"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="candy" type="Label" parent="game ui/stats"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.336
+margin_top = 2.15846
+margin_right = -79.336
+margin_bottom = 83.1585
+text = "candy"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time" type="Label" parent="game ui/stats"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -95.5
+margin_right = 95.5
+margin_bottom = 81.0
+text = "time"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snakes" type="Label" parent="game ui/stats"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -331.699
+margin_top = 2.15846
+margin_right = -140.699
+margin_bottom = 83.1585
+text = "SNAKES"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="debug" type="Label" parent="game ui/stats"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -95.5
+margin_top = 517.907
+margin_right = 95.5
+margin_bottom = 598.907
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="game ui/stats"]
+margin_right = 155.0
+margin_bottom = 63.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttons" type="Control" parent="game ui"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_right = 512.0
+rect_pivot_offset = Vector2( 510.412, 0.579346 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move" type="Node2D" parent="game ui/buttons"]
+
+[node name="left" type="TouchScreenButton" parent="game ui/buttons/move"]
+modulate = Color( 0.945098, 0.831373, 0.286275, 0.756863 )
+position = Vector2( 49.9856, -127.236 )
+rotation = -1.5708
+scale = Vector2( 0.448314, 0.464308 )
+normal = ExtResource( 3 )
+
+[node name="right" type="TouchScreenButton" parent="game ui/buttons/move"]
+modulate = Color( 0.945098, 0.831373, 0.286275, 0.756863 )
+position = Vector2( 372.62, -209.031 )
+rotation = 1.5708
+scale = Vector2( 0.448314, 0.464308 )
+normal = ExtResource( 3 )
+
+[node name="act" type="Node2D" parent="game ui/buttons"]
+position = Vector2( 1022.91, -5.30005 )
+
+[node name="jump" type="TouchScreenButton" parent="game ui/buttons/act"]
+modulate = Color( 0.945098, 0.831373, 0.286275, 0.756863 )
+position = Vector2( -173.157, -271.893 )
+scale = Vector2( 0.448314, 0.464308 )
+normal = ExtResource( 3 )
+
+[node name="attk" type="TouchScreenButton" parent="game ui/buttons/act"]
+modulate = Color( 1, 0, 0, 0.6 )
+position = Vector2( -379.916, -228.724 )
+scale = Vector2( 0.448314, 0.464308 )
+normal = ExtResource( 2 )
+
+[node name="settings" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui scl" type="Label" parent="settings"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.0
+margin_top = 198.775
+margin_right = 92.0
+margin_bottom = 227.775
+text = "sfx volume"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scale" type="HSlider" parent="settings/ui scl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.5
+margin_top = 78.725
+margin_right = 157.5
+margin_bottom = 94.725
+min_value = 1.0
+max_value = 2.0
+step = 0.01
+value = 1.0
+tick_count = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music lbl" type="Label" parent="settings"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.0
+margin_top = 143.0
+margin_right = 92.0
+margin_bottom = 172.0
+text = "music volume"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music" type="HSlider" parent="settings/music lbl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.5
+margin_top = 14.247
+margin_right = 157.5
+margin_bottom = 30.247
+min_value = -16.0
+max_value = 0.0
+step = 0.01
+tick_count = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx lbl" type="Label" parent="settings"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.0
+margin_top = 261.782
+margin_right = 92.0
+margin_bottom = 290.782
+text = "ui scale"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx" type="HSlider" parent="settings/sfx lbl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.5
+margin_top = -46.0787
+margin_right = 157.5
+margin_bottom = -30.0787
+min_value = -16.0
+max_value = 0.0
+step = 0.01
+tick_count = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="settings"]
+margin_right = 155.0
+margin_bottom = 63.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "bgm"
+
+[node name="back" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+pitch_scale = 0.5
+bus = "sfx"
+[connection signal="pressed" from="main menu/screen left/charRight" to="." method="_on_charRight_pressed"]
+[connection signal="pressed" from="main menu/screen left/charLeft" to="." method="_on_charLeft_pressed"]
+[connection signal="pressed" from="game ui/stats/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="settings/ui scl/scale" to="." method="_on_scale_value_changed"]
+[connection signal="value_changed" from="settings/music lbl/music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="settings/sfx lbl/sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="settings/back" to="." method="_on_back_pressed"]

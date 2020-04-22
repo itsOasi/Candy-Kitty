@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/char.tscn" type="PackedScene" id=1]
+[ext_resource path="res://imgs/bird/bird.png" type="Texture" id=2]
+
+[node name="char" instance=ExtResource( 1 )]
+spd = 20
+max_jump = 10
+attk_frame = 1
+jump_frame = 2
+fall_frame = 3
+jump_str = 125
+
+[node name="tex" parent="." index="0"]
+position = Vector2( 97.3361, 10.8151 )
+texture = ExtResource( 2 )
+frame = 0
+
+[node name="bodycol" parent="tex" index="0"]
+position = Vector2( -118.966, -18.0252 )

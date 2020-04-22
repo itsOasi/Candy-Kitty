@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://env/candy.tscn" type="PackedScene" id=1]
+
+[node name="candy" instance=ExtResource( 1 )]
+amnt = 5
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2( 1.27423, 0.835461 )

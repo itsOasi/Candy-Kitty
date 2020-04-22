@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://imgs/snake/snake.png" type="Texture" id=1]
+[ext_resource path="res://enemy.gd" type="Script" id=2]
+[ext_resource path="res://audio/hit.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/attack.ogg" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 43.7477, 18.7322 )
+
+[sub_resource type="Animation" id=2]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:attackOk")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -200, 0 ), Vector2( -200, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("nmy/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("attack:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 123.441, 298.733 )
+
+[node name="Node2D" type="KinematicBody2D"]
+z_index = 2
+script = ExtResource( 2 )
+hp = 15
+spd = 15
+fric = 0.3
+jump_str = 150
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 92.5043, -278.73 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 1024 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.09094, -203.822 )
+scale = Vector2( 3.74014, 9.85182 )
+shape = SubResource( 1 )
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 6.0
+bus = "sfx"
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 6.0
+bus = "sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 2 )
+
+[node name="nmy" type="Area2D" parent="."]
+position = Vector2( -6.1817, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nmy"]
+position = Vector2( -287.451, -247.27 )
+shape = SubResource( 3 )
+disabled = true
+[connection signal="screen_entered" from="Sprite/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="Sprite/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="finished" from="hit" to="." method="_on_hit_finished"]
+[connection signal="body_entered" from="nmy" to="." method="_on_nmy_body_entered"]

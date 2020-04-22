@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/char.tscn" type="PackedScene" id=1]
+[ext_resource path="res://imgs/mouse/mouse.png" type="Texture" id=2]
+
+[node name="char" instance=ExtResource( 1 )]
+ap = 3
+attk_frame = 1
+jump_frame = 2
+
+[node name="tex" parent="." index="0"]
+position = Vector2( 85.1536, 0 )
+texture = ExtResource( 2 )
+
+[node name="bodycol" parent="tex" index="0"]
+position = Vector2( -91.0263, -5.87262 )
+
+[node name="CollisionShape2D" parent="attk" index="0"]
+disabled = false
