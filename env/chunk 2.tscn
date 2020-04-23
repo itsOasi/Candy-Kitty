@@ -36,6 +36,6 @@ position = Vector2( 1312.77, -1298 )
 position = Vector2( 4204.55, -3340.19 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2761.96, 51.8582 )
+position = Vector2( 2800.95, -961.858 )
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -36,16 +36,15 @@ func _ready():
 func _physics_process(delta):
 	_delta = delta
 	var dist = abs(Globals.player.position.x - position.x)
-	if $Sprite/VisibilityNotifier2D.visible:
-		Globals.debug_msg = str(dist)
-		if Globals.player.position.x > position.x:
-			right()
-		if Globals.player.position.x < position.x:
-			left()
-		if dist < 500 and attackOk:
-			attack()
-
-	move(0, Globals.grav, delta)
+	Globals.debug_msg = str(dist)
+	if Globals.player.position.x > position.x:
+		right()
+	if Globals.player.position.x < position.x:
+		left()
+	if dist < 500 and attackOk:
+		attack()
+	if not is_on_floor():
+		move(0, Globals.grav, delta)
 
 func left():
 	if flipped:
@@ -85,7 +84,7 @@ func move(x, y, delta):
 		vel.x = spd
 	if vel.x <= -spd:
 		vel.x = -spd
-	translate(Vector2(vel.x, 0))
+	translate(move_and_slide(vel, Vector2.UP))
 	acc.x += -acc.x * fric
 
 func _on_VisibilityNotifier2D_screen_entered():

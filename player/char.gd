@@ -59,6 +59,7 @@ func _process(delta):
 		acc.y = 0
 		vel.y = 0
 		jumpOk = true
+		gotHitOk = true
 		jumpInt = max_jump
 		if not_on_floor:
 			$tex.frame = idle_frame
@@ -140,7 +141,7 @@ func _on_bodycol_body_entered(body):
 func gotHit(dir:int):
 	if gotHitOk:
 		move(spd*1000*dir, -Globals.grav*50, _delta)
-		$AnimationPlayer.play("hit")
+		$hit.play()
 		gotHitOk = false
 
 func _on_VisibilityNotifier2D_screen_exited():

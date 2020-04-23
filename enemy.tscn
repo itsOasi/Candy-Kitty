@@ -53,7 +53,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.7, 1.4 ),
+"times": PoolRealArray( 0, 0.7, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -72,7 +72,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 123.441, 298.733 )
+extents = Vector2( 271.803, 298.733 )
 
 [node name="Node2D" type="KinematicBody2D"]
 z_index = 2
@@ -114,7 +114,7 @@ anims/attack = SubResource( 2 )
 position = Vector2( -6.1817, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nmy"]
-position = Vector2( -287.451, -247.27 )
+position = Vector2( -200.906, -241.088 )
 shape = SubResource( 3 )
 disabled = true
 [connection signal="screen_entered" from="Sprite/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
