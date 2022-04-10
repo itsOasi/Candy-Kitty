@@ -1,2 +1,2 @@
 # Candy Kitty
- Cute endless platformer where you eat candy and fight snakes
+ Cute endless mobile platformer where you eat candy and fight snakes
