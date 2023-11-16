@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwi2o0dahur6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6c60e"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7kh0"]
+material = SubResource("StandardMaterial3D_6c60e")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8jd56"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxdei"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2c3ed"]
+material = SubResource("StandardMaterial3D_vxdei")
+
+[node name="tiles" type="Node3D"]
+
+[node name="ground" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_6c60e")
+mesh = SubResource("BoxMesh_y7kh0")
+surface_material_override/0 = SubResource("StandardMaterial3D_6c60e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8jd56")
+
+[node name="obstacle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = SubResource("StandardMaterial3D_vxdei")
+mesh = SubResource("BoxMesh_2c3ed")
+surface_material_override/0 = SubResource("StandardMaterial3D_vxdei")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="obstacle"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8jd56")

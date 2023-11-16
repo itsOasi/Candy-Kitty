@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://t1cue5ydvffi"]
+
+[ext_resource type="Script" path="res://objects/candy.gd" id="1_8vavp"]
+[ext_resource type="Texture2D" uid="uid://bhoikfw4ta7x0" path="res://assets/imgs/candy/candy.png" id="1_h80d7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_onu50"]
+
+[node name="candy" type="RigidBody3D"]
+script = ExtResource("1_8vavp")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+texture = ExtResource("1_h80d7")
+region_enabled = true
+region_rect = Rect2(342.937, 666.072, 756.149, 359.542)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_onu50")
